@@ -1,0 +1,109 @@
+---
+title: "Brain data/demographic filtering"
+author: "Hillary Mastarciyan"
+date: "2025-05-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readr)
+
+setwd("/Users/hillarymastarciyan/BrainHack Project")
+
+```
+
+```{r}
+
+df.medX <- read.csv("/Users/hillarymastarciyan/Desktop/adultmedX.csv", header = TRUE, skip = 1)
+
+load("/Users/hillarymastarciyan/Library/CloudStorage/Box-Box/Functional Connectivity/Data/cube_r.RData")
+
+```
+
+```{r}
+
+#This chunk is to filter the demographic medical file to account for our variables of interest (ADHD and previous history of TBI)
+
+df.medX1 <- df.medX %>% 
+  
+distinct(ID, .keep_all = TRUE) %>% 
+  
+select("ID", "SUB_TYPE", "MHAM_16", "MHAM_85") %>% 
+
+filter (MHAM_85 == 1)
+
+kept.sub <- paste0("sub-", df.medX1$ID)
+
+```
+
+```{r}
+
+#################come back to this after!
+#data <- cube_r[,,df.medX1_adhd$ID]
+
+```
+
+```{r}
+cube_r_ids <-as.data.frame(cube_r [1,1,], row.names = )
+
+cube_r_ids$ID <- rownames(cube_r_ids)
+my_list<-rownames(cube_r_ids)
+length(setdiff(my_list, kept.sub))
+
+library(tidyverse)
+medXadhdF1 = medXadhdF %>% 
+  filter(ID != 'sub-A00060005')
+#sub-A00060005
+#setdiff(cube_r [1,1,], kept.sub)
+```
+
+```{r}
+df.medX1_adhd <- df.medX1[df.medX1$MHAM_85 == 1,]
+
+
+medXadhdF <- df.medX1_adhd[!is.na(df.medX1_adhd$ID),] 
+
+medXadhdF$ID <- paste0("sub-", medXadhdF$ID)
+```
+
+```{r}
+#setdiff(cube_r_ids, kept.sub)
+```
+
+```{r}
+library(reshape2)
+new_cube = melt(cube_r)
+new_med = medXadhdF %>% 
+  left_join(new_cube %>% 
+              rename('ID' = 'Var3'), 
+            by = 'ID')
+  
+```
+
+```{r}
+for (subject in finalmedXIDs){
+  x = cube_r [,,subject]
+  x = as_tibble(x)
+  write_csv(x, paste0('data_', subject, '.txt'))
+  print(subject)
+}
+```
+
+```{r}
+
+setdiff(medXadhdF$ID, new_cube$Var3)
+
+finalmedXIDs<- intersect(medXadhdF$ID, cube_r_ids$ID)
+
+```
+
+```{r}
+
+
+```
