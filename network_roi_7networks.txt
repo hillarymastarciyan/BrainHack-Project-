@@ -1,0 +1,421 @@
+hemi	network	ROI	network_group
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	Striate	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisCent	ExStr	Vis
+LH	VisPeri	ExStrInf	Vis
+LH	VisPeri	ExStrInf	Vis
+LH	VisPeri	ExStrInf	Vis
+LH	VisPeri	ExStrInf	Vis
+LH	VisPeri	ExStrInf	Vis
+LH	VisPeri	StriCal	Vis
+LH	VisPeri	StriCal	Vis
+LH	VisPeri	ExStrSup	Vis
+LH	VisPeri	ExStrSup	Vis
+LH	VisPeri	ExStrSup	Vis
+LH	VisPeri	ExStrSup	Vis
+LH	VisPeri	ExStrSup	Vis
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotA		SomMot
+LH	SomMotB	Aud	SomMot
+LH	SomMotB	Aud	SomMot
+LH	SomMotB	Ins	SomMot
+LH	SomMotB	S2	SomMot
+LH	SomMotB	S2	SomMot
+LH	SomMotB	Aud	SomMot
+LH	SomMotB	Aud	SomMot
+LH	SomMotB	S2	SomMot
+LH	SomMotB	S2	SomMot
+LH	SomMotB	S2	SomMot
+LH	SomMotB	S2	SomMot
+LH	SomMotB	Cent	SomMot
+LH	SomMotB	Cent	SomMot
+LH	SomMotB	Cent	SomMot
+LH	SomMotB	Cent	SomMot
+LH	SomMotB	Cent	SomMot
+LH	DorsAttnA	TempOcc	DorsAttn
+LH	DorsAttnA	TempOcc	DorsAttn
+LH	DorsAttnA	TempOcc	DorsAttn
+LH	DorsAttnA	TempOcc	DorsAttn
+LH	DorsAttnA	ParOcc	DorsAttn
+LH	DorsAttnA	ParOcc	DorsAttn
+LH	DorsAttnA	SPL	DorsAttn
+LH	DorsAttnA	SPL	DorsAttn
+LH	DorsAttnA	SPL	DorsAttn
+LH	DorsAttnA	SPL	DorsAttn
+LH	DorsAttnA	SPL	DorsAttn
+LH	DorsAttnA	SPL	DorsAttn
+LH	DorsAttnA	SPL	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	PostC	DorsAttn
+LH	DorsAttnB	FEF	DorsAttn
+LH	DorsAttnB	FEF	DorsAttn
+LH	DorsAttnB	FEF	DorsAttn
+LH	DorsAttnB	PrCv	DorsAttn
+LH	SalVentAttnA	ParOper	SalVentAttn
+LH	SalVentAttnA	ParOper	SalVentAttn
+LH	SalVentAttnA	ParOper	SalVentAttn
+LH	SalVentAttnA	Ins	SalVentAttn
+LH	SalVentAttnA	Ins	SalVentAttn
+LH	SalVentAttnA	Ins	SalVentAttn
+LH	SalVentAttnA	Ins	SalVentAttn
+LH	SalVentAttnA	FrOper	SalVentAttn
+LH	SalVentAttnA	FrOper	SalVentAttn
+LH	SalVentAttnA	ParMed	SalVentAttn
+LH	SalVentAttnA	ParMed	SalVentAttn
+LH	SalVentAttnA	ParMed	SalVentAttn
+LH	SalVentAttnA	FrMed	SalVentAttn
+LH	SalVentAttnA	FrMed	SalVentAttn
+LH	SalVentAttnA	FrMed	SalVentAttn
+LH	SalVentAttnB	PFCl	SalVentAttn
+LH	SalVentAttnB	PFCl	SalVentAttn
+LH	SalVentAttnB	PFCl	SalVentAttn
+LH	SalVentAttnB	Ins	SalVentAttn
+LH	SalVentAttnB	Ins	SalVentAttn
+LH	SalVentAttnB	Ins	SalVentAttn
+LH	SalVentAttnB	OFC	SalVentAttn
+LH	SalVentAttnB	PFCmp	SalVentAttn
+LH	LimbicB	OFC	Limbic
+LH	LimbicB	OFC	Limbic
+LH	LimbicB	OFC	Limbic
+LH	LimbicB	OFC	Limbic
+LH	LimbicB	OFC	Limbic
+LH	LimbicA	TempPole	Limbic
+LH	LimbicA	TempPole	Limbic
+LH	LimbicA	TempPole	Limbic
+LH	LimbicA	TempPole	Limbic
+LH	LimbicA	TempPole	Limbic
+LH	LimbicA	TempPole	Limbic
+LH	LimbicA	TempPole	Limbic
+LH	ContA	Temp	Cont
+LH	ContA	IPS	Cont
+LH	ContA	IPS	Cont
+LH	ContA	IPS	Cont
+LH	ContA	IPS	Cont
+LH	ContA	IPS	Cont
+LH	ContA	PFCd	Cont
+LH	ContA	PFClv	Cont
+LH	ContA	PFClv	Cont
+LH	ContA	PFCl	Cont
+LH	ContA	PFCl	Cont
+LH	ContA	PFCl	Cont
+LH	ContA	Cingm	Cont
+LH	ContB	Temp	Cont
+LH	ContB	Temp	Cont
+LH	ContB	IPL	Cont
+LH	ContB	IPL	Cont
+LH	ContB	IPL	Cont
+LH	ContB	PFCd	Cont
+LH	ContB	PFClv	Cont
+LH	ContB	PFClv	Cont
+LH	ContB	PFClv	Cont
+LH	ContB	PFCmp	Cont
+LH	ContC	pCun	Cont
+LH	ContC	pCun	Cont
+LH	ContC	pCun	Cont
+LH	ContC	Cingp	Cont
+LH	ContC	Cingp	Cont
+LH	DefaultA	IPL	Default
+LH	DefaultA	IPL	Default
+LH	DefaultA	PFCd	Default
+LH	DefaultA	PFCd	Default
+LH	DefaultA	PFCd	Default
+LH	DefaultA	pCunPCC	Default
+LH	DefaultA	pCunPCC	Default
+LH	DefaultA	pCunPCC	Default
+LH	DefaultA	pCunPCC	Default
+LH	DefaultA	pCunPCC	Default
+LH	DefaultA	pCunPCC	Default
+LH	DefaultA	pCunPCC	Default
+LH	DefaultA	PFCm	Default
+LH	DefaultA	PFCm	Default
+LH	DefaultA	PFCm	Default
+LH	DefaultA	PFCm	Default
+LH	DefaultA	PFCm	Default
+LH	DefaultA	PFCm	Default
+LH	DefaultB	Temp	Default
+LH	DefaultB	Temp	Default
+LH	DefaultB	Temp	Default
+LH	DefaultB	Temp	Default
+LH	DefaultB	Temp	Default
+LH	DefaultB	Temp	Default
+LH	DefaultB	IPL	Default
+LH	DefaultB	IPL	Default
+LH	DefaultB	PFCd	Default
+LH	DefaultB	PFCd	Default
+LH	DefaultB	PFCd	Default
+LH	DefaultB	PFCd	Default
+LH	DefaultB	PFCd	Default
+LH	DefaultB	PFCd	Default
+LH	DefaultB	PFCl	Default
+LH	DefaultB	PFCl	Default
+LH	DefaultB	PFCv	Default
+LH	DefaultB	PFCv	Default
+LH	DefaultB	PFCv	Default
+LH	DefaultB	PFCv	Default
+LH	DefaultB	PFCv	Default
+LH	DefaultC	IPL	Default
+LH	DefaultC	Rsp	Default
+LH	DefaultC	Rsp	Default
+LH	DefaultC	Rsp	Default
+LH	DefaultC	PHC	Default
+LH	DefaultC	PHC	Default
+LH	DefaultC	PHC	Default
+LH	TempPar		TempPar
+LH	TempPar		TempPar
+LH	TempPar		TempPar
+LH	TempPar		TempPar
+LH	TempPar		TempPar
+LH	TempPar		TempPar
+LH	Subcort	AMY	Subcort
+LH	Subcort	pTHA	Subcort
+LH	Subcort	aTHA	Subcort
+LH	Subcort	NAc	Subcort
+LH	Subcort	GP	Subcort
+LH	Subcort	PUT	Subcort
+LH	Subcort	CAU	Subcort
+LH	Subcort	HIP-head	Subcort
+LH	Subcort	HIP-body	Subcort
+LH	Subcort	HIP-tail	Subcort
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	Striate	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisCent	ExStr	Vis
+RH	VisPeri	ExStrInf	Vis
+RH	VisPeri	ExStrInf	Vis
+RH	VisPeri	ExStrInf	Vis
+RH	VisPeri	ExStrInf	Vis
+RH	VisPeri	ExStrInf	Vis
+RH	VisPeri	StriCal	Vis
+RH	VisPeri	StriCal	Vis
+RH	VisPeri	ExStrSup	Vis
+RH	VisPeri	ExStrSup	Vis
+RH	VisPeri	ExStrSup	Vis
+RH	VisPeri	ExStrSup	Vis
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotA		SomMot
+RH	SomMotB	Aud	SomMot
+RH	SomMotB	Aud	SomMot
+RH	SomMotB	Ins	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	Aud	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	S2	SomMot
+RH	SomMotB	Cent	SomMot
+RH	SomMotB	Cent	SomMot
+RH	SomMotB	Cent	SomMot
+RH	DorsAttnA	TempOcc	DorsAttn
+RH	DorsAttnA	TempOcc	DorsAttn
+RH	DorsAttnA	TempOcc	DorsAttn
+RH	DorsAttnA	ParOcc	DorsAttn
+RH	DorsAttnA	ParOcc	DorsAttn
+RH	DorsAttnA	ParOcc	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnA	SPL	DorsAttn
+RH	DorsAttnB	TempOcc	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	PostC	DorsAttn
+RH	DorsAttnB	FEF	DorsAttn
+RH	DorsAttnB	FEF	DorsAttn
+RH	DorsAttnB	FEF	DorsAttn
+RH	SalVentAttnA	ParOper	SalVentAttn
+RH	SalVentAttnA	ParOper	SalVentAttn
+RH	SalVentAttnA	ParOper	SalVentAttn
+RH	SalVentAttnA	PrC	SalVentAttn
+RH	SalVentAttnA	Ins	SalVentAttn
+RH	SalVentAttnA	Ins	SalVentAttn
+RH	SalVentAttnA	Ins	SalVentAttn
+RH	SalVentAttnA	Ins	SalVentAttn
+RH	SalVentAttnA	FrOper	SalVentAttn
+RH	SalVentAttnA	FrOper	SalVentAttn
+RH	SalVentAttnA	FrOper	SalVentAttn
+RH	SalVentAttnA	FrMed	SalVentAttn
+RH	SalVentAttnA	ParMed	SalVentAttn
+RH	SalVentAttnA	ParMed	SalVentAttn
+RH	SalVentAttnA	FrMed	SalVentAttn
+RH	SalVentAttnA	ParMed	SalVentAttn
+RH	SalVentAttnA	ParMed	SalVentAttn
+RH	SalVentAttnA	FrMed	SalVentAttn
+RH	SalVentAttnA	FrMed	SalVentAttn
+RH	SalVentAttnB	IPL	SalVentAttn
+RH	SalVentAttnB	PFClv	SalVentAttn
+RH	SalVentAttnB	PFCl	SalVentAttn
+RH	SalVentAttnB	PFCl	SalVentAttn
+RH	SalVentAttnB	PFCl	SalVentAttn
+RH	SalVentAttnB	Ins	SalVentAttn
+RH	SalVentAttnB	Ins	SalVentAttn
+RH	SalVentAttnB	PFCmp	SalVentAttn
+RH	SalVentAttnB	PFCmp	SalVentAttn
+RH	LimbicB	OFC	Limbic
+RH	LimbicB	OFC	Limbic
+RH	LimbicB	OFC	Limbic
+RH	LimbicB	OFC	Limbic
+RH	LimbicB	OFC	Limbic
+RH	LimbicB	OFC	Limbic
+RH	LimbicA	TempPole	Limbic
+RH	LimbicA	TempPole	Limbic
+RH	LimbicA	TempPole	Limbic
+RH	LimbicA	TempPole	Limbic
+RH	LimbicA	TempPole	Limbic
+RH	LimbicA	TempPole	Limbic
+RH	ContA	IPS	Cont
+RH	ContA	IPS	Cont
+RH	ContA	IPS	Cont
+RH	ContA	IPS	Cont
+RH	ContA	PFCd	Cont
+RH	ContA	PFCl	Cont
+RH	ContA	PFCl	Cont
+RH	ContA	PFCl	Cont
+RH	ContA	PFCl	Cont
+RH	ContA	PFCl	Cont
+RH	ContA	Cingm	Cont
+RH	ContB	Temp	Cont
+RH	ContB	Temp	Cont
+RH	ContB	IPL	Cont
+RH	ContB	IPL	Cont
+RH	ContB	IPL	Cont
+RH	ContB	IPL	Cont
+RH	ContB	PFCld	Cont
+RH	ContB	PFCld	Cont
+RH	ContB	PFCld	Cont
+RH	ContB	PFCld	Cont
+RH	ContB	PFClv	Cont
+RH	ContB	PFClv	Cont
+RH	ContB	PFClv	Cont
+RH	ContB	PFClv	Cont
+RH	ContB	PFCmp	Cont
+RH	ContC	pCun	Cont
+RH	ContC	pCun	Cont
+RH	ContC	pCun	Cont
+RH	ContC	pCun	Cont
+RH	ContC	pCun	Cont
+RH	ContC	Cingp	Cont
+RH	ContC	Cingp	Cont
+RH	DefaultA	Temp	Default
+RH	DefaultA	IPL	Default
+RH	DefaultA	IPL	Default
+RH	DefaultA	PFCd	Default
+RH	DefaultA	PFCd	Default
+RH	DefaultA	pCunPCC	Default
+RH	DefaultA	pCunPCC	Default
+RH	DefaultA	pCunPCC	Default
+RH	DefaultA	pCunPCC	Default
+RH	DefaultA	pCunPCC	Default
+RH	DefaultA	PFCm	Default
+RH	DefaultA	PFCm	Default
+RH	DefaultA	PFCm	Default
+RH	DefaultA	PFCm	Default
+RH	DefaultA	PFCm	Default
+RH	DefaultA	PFCm	Default
+RH	DefaultB	Temp	Default
+RH	DefaultB	Temp	Default
+RH	DefaultB	AntTemp	Default
+RH	DefaultB	PFCd	Default
+RH	DefaultB	PFCd	Default
+RH	DefaultB	PFCd	Default
+RH	DefaultB	PFCd	Default
+RH	DefaultB	PFCd	Default
+RH	DefaultB	PFCv	Default
+RH	DefaultB	PFCv	Default
+RH	DefaultB	PFCv	Default
+RH	DefaultC	IPL	Default
+RH	DefaultC	IPL	Default
+RH	DefaultC	Rsp	Default
+RH	DefaultC	Rsp	Default
+RH	DefaultC	PHC	Default
+RH	DefaultC	PHC	Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	TempPar		Default
+RH	Subcort	AMY	Subcort
+RH	Subcort	pTHA	Subcort
+RH	Subcort	aTHA	Subcort
+RH	Subcort	NAc	Subcort
+RH	Subcort	GP	Subcort
+RH	Subcort	PUT	Subcort
+RH	Subcort	CAU	Subcort
+RH	Subcort	HIP-head	Subcort
+RH	Subcort	HIP-body	Subcort
+RH	Subcort	HIP-tail	Subcort
