@@ -105,17 +105,14 @@ table(demographic_adhd_controls$MHAM_85)
 write.csv(demographic_adhd_controls, "/Users/hillarymastarciyan/Desktop/demographic_adhd_controls.csv")
 ```
 
-
 ```{r}
-new_cube = melt(cube_r)
-new_med = df.sub.filter1 %>% 
-  left_join(new_cube %>% 
-              rename('ID' = 'Var3'), 
-            by = 'ID')
+finalmedXIDs<- intersect(demographic_adhd_controls$subID, cube_r_subIDs$ID)
 ```
+
 
 ```{r}
 for (subject in finalmedXIDs){
+  print(subject)
   x = cube_r [,,subject]
   x = as_tibble(x)
   write_csv(x, paste0("Data/",'data_', subject, '.txt'))

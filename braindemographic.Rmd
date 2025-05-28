@@ -103,7 +103,3 @@ finalmedXIDs<- intersect(medXadhdF$ID, cube_r_ids$ID)
 
 ```
 
-```{r}
-
-
-```
