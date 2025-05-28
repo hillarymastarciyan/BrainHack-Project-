@@ -1,0 +1,125 @@
+---
+title: "braindemographic2"
+author: "Hillary Mastarciyan"
+date: "2025-05-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readr)
+library(reshape2)
+
+setwd("/Users/hillarymastarciyan/BrainHack Project")
+```
+
+```{r}
+
+df.demographic <- read.csv("/Users/hillarymastarciyan/Desktop/GitHub/df.merge.csv")
+
+df.medX <- read.csv("/Users/hillarymastarciyan/Desktop/GitHub/adultmedX.csv", header = TRUE, skip = 1)
+
+load("/Users/hillarymastarciyan/Library/CloudStorage/Box-Box/Functional Connectivity/Data/cube_r.RData")
+
+```
+
+
+```{r}
+df.demographic.sub <-
+  df.demographic %>% 
+  select("ID", "AGE", "SEXm1f2") %>% 
+  mutate(ID = paste0("sub-", ID))
+
+df.medX.sub <- 
+  df.medX %>% 
+  select("ID", "MHAM_16","MHAM_85") %>% 
+  #filter(MHAM_85 == 0) %>% 
+  mutate(ID = paste0("sub-", ID))
+
+df.sub <-
+  full_join(df.demographic.sub, df.medX.sub) %>% 
+  distinct (ID, .keep_all = TRUE)
+
+#df.sub.filter <- 
+ # df.sub %>% 
+  #filter(ID %in% list_18)
+
+#df.sub.filter
+
+#df.sub.filter %>% 
+  #janitor::get_dupes(ID)
+
+#df.sub.filter1 <- df.sub.filter %>% 
+  #distinct(ID, .keep_all = TRUE) 
+```
+
+
+```{r}
+# Here we turn the cube into a dataframe to visualize the data 
+cube_r_ids <-as.data.frame(cube_r [1,1,], row.names = )
+
+# Here we make a new dataframe that makes the ID column labelled ID column 
+cube_r_subIDs <- cube_r_ids %>% 
+  rownames_to_column(var = "ID")
+  
+
+```
+
+```{r}
+
+controlsample <- left_join(cube_r_subIDs,df.sub) %>% 
+  filter(MHAM_16 == 0, MHAM_85 == 0) %>% 
+  rename(subID = ID)
+
+controlsample$ID <- sub("sub-", "", controlsample[,1])
+
+controlsample$`cube_r[1, 1, ]` <- NULL
+```
+
+
+```{r}
+demographic_adhd <- read.csv("/Users/hillarymastarciyan/Desktop/GitHub/adhdfinalsample.csv")
+
+demographic_adhd$X <- NULL
+```
+
+```{r}
+library(purrr)
+set.seed(133)
+demographic_adhd_controls <- demographic_adhd %>%
+  group_split(row_number(), .keep = FALSE) %>%
+  map_df(~bind_rows(.x, controlsample %>% 
+                    filter(AGE >= .x$AGE - 2 & AGE <= .x$AGE + 2, 
+                           SEXm1f2 == .x$SEXm1f2) %>%
+        slice_sample(n = 2)))
+```
+
+```{r}
+table(demographic_adhd_controls$MHAM_85)
+
+write.csv(demographic_adhd_controls, "/Users/hillarymastarciyan/Desktop/demographic_adhd_controls.csv")
+```
+
+
+```{r}
+new_cube = melt(cube_r)
+new_med = df.sub.filter1 %>% 
+  left_join(new_cube %>% 
+              rename('ID' = 'Var3'), 
+            by = 'ID')
+```
+
+```{r}
+for (subject in finalmedXIDs){
+  x = cube_r [,,subject]
+  x = as_tibble(x)
+  write_csv(x, paste0("Data/",'data_', subject, '.txt'))
+  print(subject)
+}
+```
+
