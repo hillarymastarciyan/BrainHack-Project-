@@ -1,0 +1,71 @@
+---
+title: "boxplot_bynetwork"
+author: "Hillary Mastarciyan"
+date: "2025-05-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(base)
+library(tidyr)
+library(tidyverse)
+library(ggplot2)
+```
+
+
+```{r}
+nodestrength <- read.csv("/Users/hillarymastarciyan/Desktop/node_strength_all_merged.csv")
+
+networkrois <- read.csv ("/Users/hillarymastarciyan/Desktop/network_roi_7networks.csv")
+
+```
+
+```{r}
+nodestrength$visual <- rowMeans(nodestrength[,c(9:32,219:241)])
+
+nodestrength$soMot <- rowMeans(nodestrength[,c(33:67,242:276)])
+
+nodestrength$dorSattn <- rowMeans(nodestrength[,c(68:93,277:302)])
+
+nodestrength$salVattn <- rowMeans(nodestrength[,c(94:116,303:330)])
+
+nodestrength$limbic <- rowMeans(nodestrength[,c(117:128,331:342)])
+
+nodestrength$cont <- rowMeans(nodestrength[,c(129:156,343:375)])
+
+nodestrength$default <- rowMeans(nodestrength[,c(177:202,376:408)])
+
+
+
+```
+
+
+```{r}
+nodestrength_long <- nodestrength  %>% 
+  pivot_longer(cols = starts_with("ROI_"), 
+               names_to = "ROI", 
+               values_to = "value")
+
+nodestrength_long$visual <- c(24, 211:233)
+```
+
+```{r}
+
+
+
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
