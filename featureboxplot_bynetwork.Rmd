@@ -19,13 +19,21 @@ library(ggplot2)
 
 
 ```{r}
-nodestrength <- read.csv("/Users/hillarymastarciyan/Desktop/node_strength_all_merged.csv")
+# load datasets
+nodestrength <- read.csv("~/Downloads/node_strength_all_merged.csv")
 
-networkrois <- read.csv ("/Users/hillarymastarciyan/Desktop/network_roi_7networks.csv")
+wpzscore <- read.csv("~/Documents/GitHub/BrainHack-Project-/results/within_module_z_all_merged.csv")
+
+participantcoeff <- read.csv("~/Documents/GitHub/BrainHack-Project-/results/participation_coeff_all_merged.csv")
+
+networkrois <- read.csv ("~/Documents/GitHub/BrainHack-Project-/network_roi_7networks.txt")
 
 ```
 
 ```{r}
+
+#calculate mean node strength and group by 7 network
+
 nodestrength$visual <- rowMeans(nodestrength[,c(9:32,219:241)])
 
 nodestrength$soMot <- rowMeans(nodestrength[,c(33:67,242:276)])
@@ -41,31 +49,129 @@ nodestrength$cont <- rowMeans(nodestrength[,c(129:156,343:375)])
 nodestrength$default <- rowMeans(nodestrength[,c(177:202,376:408)])
 
 
+```
 
+```{r}
+#calculate mean within participant z-score and group by 7 network
+
+wpzscore$visual <- rowMeans(wpzscore[,c(9:32,219:241)])
+
+wpzscore$soMot <- rowMeans(wpzscore[,c(33:67,242:276)])
+
+wpzscore$dorSattn <- rowMeans(wpzscore[,c(68:93,277:302)])
+
+wpzscore$salVattn <- rowMeans(wpzscore[,c(94:116,303:330)])
+
+wpzscore$limbic <- rowMeans(wpzscore[,c(117:128,331:342)])
+
+wpzscore$cont <- rowMeans(wpzscore[,c(129:156,343:375)])
+
+wpzscore$default <- rowMeans(wpzscore[,c(177:202,376:408)])
+```
+
+```{r}
+#calculate mean within participant z-score and group by 7 network
+
+participantcoeff$visual <- rowMeans(participantcoeff[,c(9:32,219:241)])
+
+participantcoeff$soMot <- rowMeans(participantcoeff[,c(33:67,242:276)])
+
+participantcoeff$dorSattn <- rowMeans(participantcoeff[,c(68:93,277:302)])
+
+participantcoeff$salVattn <- rowMeans(participantcoeff[,c(94:116,303:330)])
+
+participantcoeff$limbic <- rowMeans(participantcoeff[,c(117:128,331:342)])
+
+participantcoeff$cont <- rowMeans(participantcoeff[,c(129:156,343:375)])
+
+participantcoeff$default <- rowMeans(participantcoeff[,c(177:202,376:408)])
+```
+
+```{r}
+# In node strength create plot for visual network
+
+ggplot(nodestrength, aes(x = as.factor(MHAM_85), y = visual, fill = as.factor(MHAM_85))) +
+  geom_violin(trim = FALSE) +
+  #geom_boxplot(width = 0.1, fill = "purple", outlier.shape = NA) +  # optional: adds boxplot inside violin
+  labs(title = "Visual Network", x = "Group", y = "Node Strength") +
+  theme_minimal() +
+  theme(legend.position = "none")
+ggsave("~/Documents/GitHub/BrainHack-Project-/results/visual_network.png", width = 6, height = 4, dpi = 300)
+
+```
+
+```{r}
+# In node strength create plot for SoMot network
+
+ggplot(nodestrength, aes(x = as.factor(MHAM_85), y = soMot, fill = as.factor(MHAM_85))) +
+  geom_violin(trim = FALSE) +
+  #geom_boxplot(width = 0.1, fill = "purple", outlier.shape = NA) +  # optional: adds boxplot inside violin
+  labs(title = "SomatoMotor Network", x = "Group", y = "Node Strength") +
+  theme_minimal() +
+  theme(legend.position = "none")
+ggsave("~/Documents/GitHub/BrainHack-Project-/results/somot_network.png", width = 6, height = 4, dpi = 300)
+
+```
+
+```{r}
+# In node strength create plot for dorSattn network
+
+ggplot(nodestrength, aes(x = as.factor(MHAM_85), y = dorSattn, fill = as.factor(MHAM_85))) +
+  geom_violin(trim = FALSE) +
+  #geom_boxplot(width = 0.1, fill = "purple", outlier.shape = NA) +  # optional: adds boxplot inside violin
+  labs(title = "Dorsal Attention Network", x = "Group", y = "Node Strength") +
+  theme_minimal() +
+  theme(legend.position = "none")
+ggsave("~/Documents/GitHub/BrainHack-Project-/results/DorsAttn_network.png", width = 6, height = 4, dpi = 300)
+```
+
+```{r}
+# In node strength create plot for salVattn network
+
+ggplot(nodestrength, aes(x = as.factor(MHAM_85), y = salVattn, fill = as.factor(MHAM_85))) +
+  geom_violin(trim = FALSE) +
+  #geom_boxplot(width = 0.1, fill = "purple", outlier.shape = NA) +  # optional: adds boxplot inside violin
+  labs(title = "Ventral Attention Network", x = "Group", y = "Node Strength") +
+  theme_minimal() +
+  theme(legend.position = "none")
+ggsave("~/Documents/GitHub/BrainHack-Project-/results/Ventral_network.png", width = 6, height = 4, dpi = 300)
+```
+
+```{r}
+# In node strength create plot for limbic network
+
+ggplot(nodestrength, aes(x = as.factor(MHAM_85), y = limbic, fill = as.factor(MHAM_85))) +
+  geom_violin(trim = FALSE) +
+  #geom_boxplot(width = 0.1, fill = "purple", outlier.shape = NA) +  # optional: adds boxplot inside violin
+  labs(title = "Limbic Network", x = "Group", y = "Node Strength") +
+  theme_minimal() +
+  theme(legend.position = "none")
+ggsave("~/Documents/GitHub/BrainHack-Project-/results/Limbic_network.png", width = 6, height = 4, dpi = 300)
+```
+```{r}
+# In node strength create plot for control network
+
+ggplot(nodestrength, aes(x = as.factor(MHAM_85), y = cont, fill = as.factor(MHAM_85))) +
+  geom_violin(trim = FALSE) +
+  #geom_boxplot(width = 0.1, fill = "purple", outlier.shape = NA) +  # optional: adds boxplot inside violin
+  labs(title = "Control Network", x = "Group", y = "Node Strength") +
+  theme_minimal() +
+  theme(legend.position = "none")
+ggsave("~/Documents/GitHub/BrainHack-Project-/results/Control_network.png", width = 6, height = 4, dpi = 300)
 ```
 
 
 ```{r}
-nodestrength_long <- nodestrength  %>% 
-  pivot_longer(cols = starts_with("ROI_"), 
-               names_to = "ROI", 
-               values_to = "value")
+# In node strength create plot for default network
 
-nodestrength_long$visual <- c(24, 211:233)
-```
-
-```{r}
-
-
-
+ggplot(nodestrength, aes(x = as.factor(MHAM_85), y = default, fill = as.factor(MHAM_85))) +
+  geom_violin(trim = FALSE) +
+  #geom_boxplot(width = 0.1, fill = "purple", outlier.shape = NA) +  # optional: adds boxplot inside violin
+  labs(title = "Default Network", x = "Group", y = "Node Strength") +
+  theme_minimal() +
+  theme(legend.position = "none")
+ggsave("~/Documents/GitHub/BrainHack-Project-/results/Default_network.png", width = 6, height = 4, dpi = 300)
 
 ```
 
-```{r}
-
-```
-
-```{r}
-
-```
 
