@@ -1,0 +1,288 @@
+---
+title: "Plot_Brain_Network"
+author: "Sam Corion"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+#load packages
+library(readxl)
+library(dplyr)
+install.packages("ggsegSchaefer")
+install.packages("devtools")
+devtools::install_github("ggseg/ggsegSchaefer")
+library(ggseg)
+library(ggsegSchaefer)
+library(stringr)
+library(ggplot2)
+library(patchwork)
+
+```
+```{r}
+head(schaefer7_400)
+```
+```{r}
+ggseg(atlas = schaefer7_400)
+
+```
+```{r}
+# new data frame created using the atlas information
+new_data <- schaefer7_400$data %>%
+  mutate(
+    # Took the network part from the region column
+    network = str_extract(region, "(?<=7Networks_[LR]H_)[^_]+")
+  )
+```
+```{r}
+# replace he object data slot
+
+schaefer7_400$data <- new_data
+
+```
+
+```{r}
+# Now plot
+ggseg(atlas = schaefer7_400, 
+      mapping = aes(fill = network), 
+      position = "stacked") +
+  theme_void() +
+  ggtitle("Schaefer 400 Atlas – Regions Colored by Network")
+
+
+
+```
+```{r}
+# Load node strength data
+strength_data <- read.csv("node_strength_all_merged.csv")
+
+# Load ROI-to-network mapping
+roi_map <- read_excel("network_roi_7networks.xlsx")
+
+```
+
+```{r}
+# Convert wide to long format
+strength_long <- strength_data %>%
+  pivot_longer(cols = starts_with("ROI"), names_to = "ROI", values_to = "Strength")
+
+```
+
+```{r}
+table(strength_data$MHAM_85)
+
+```
+```{r}
+#clear group label before plotting
+strength_long_lab <- strength_long %>%
+  mutate(Group = ifelse(MHAM_85 == 1, "ADHD", "Control"))
+
+```
+
+```{r}
+# Load mapping from Excel and attach ROI labels
+roi_map <- read_excel("network_roi_7networks.xlsx") %>%
+  mutate(ROI = paste0("ROI_", row_number()))
+
+```
+```{r}
+# Merge strength with region info
+strength_labeled <- strength_long_lab %>%
+  left_join(roi_map, by = "ROI") %>%
+  left_join(
+    schaefer7_400$data %>% select(region) %>% distinct() %>% 
+      mutate(ROI = paste0("ROI_", row_number())),
+    by = "ROI"
+  )
+
+# Compute average strength per region per group
+group_avg_strength <- strength_labeled %>%
+  group_by(Group, region) %>%
+  summarise(mean_strength = mean(Strength, na.rm = TRUE), .groups = "drop")
+
+```
+```{r}
+# Split data for each group
+control_data <- group_avg_strength %>% filter(Group == "Control")
+adhd_data <- group_avg_strength %>% filter(Group == "ADHD")
+
+# Function to prepare atlas for plotting
+prepare_brain_plot <- function(data, title) {
+  atlas <- schaefer7_400
+  atlas$data <- atlas$data %>%
+    left_join(data %>% select(region, mean_strength), by = "region")
+  
+  ggseg(atlas = atlas,
+        mapping = aes(fill = mean_strength),
+        position = "stacked") +
+    scale_fill_viridis_c(na.value = "gray") +
+    theme_void() +
+    ggtitle(title)
+}
+
+# Create plots
+control_plot <- prepare_brain_plot(control_data, "Control Group — Node Strength")
+adhd_plot <- prepare_brain_plot(adhd_data, "ADHD Group — Node Strength")
+
+```
+
+```{r}
+# Optionally use patchwork for side-by-side
+#install.packages("patchwork")
+library(patchwork)
+
+control_plot | adhd_plot
+
+```
+
+WMZ
+
+
+```{r}
+# Load node strength data
+wmz_data <- read.csv("within_module_z_all_merged.csv")
+
+# Convert wide to long format
+wmz_long <- wmz_data %>%
+  pivot_longer(cols = starts_with("ROI"), names_to = "ROI", values_to = "WMZ")
+
+```
+
+```{r}
+#clear group label before plotting
+wmz_long_lab <- wmz_long %>%
+  mutate(Group = ifelse(MHAM_85 == 1, "ADHD", "Control"))
+
+```
+
+```{r}
+# Merge strength with region info
+wmz_labeled <- wmz_long_lab %>%
+  left_join(roi_map, by = "ROI") %>%
+  left_join(
+    schaefer7_400$data %>% select(region) %>% distinct() %>% 
+      mutate(ROI = paste0("ROI_", row_number())),
+    by = "ROI"
+  )
+
+# Compute average strength per region per group
+group_avg_wmz <- wmz_labeled %>%
+  group_by(Group, region) %>%
+  summarise(mean_wmz = mean(WMZ, na.rm = TRUE), .groups = "drop")
+
+```
+```{r}
+# Split data for each group
+control_data_wmz <- group_avg_wmz %>% filter(Group == "Control")
+adhd_data_wmz <- group_avg_wmz %>% filter(Group == "ADHD")
+
+# Function to prepare atlas for plotting
+prepare_brain_plot <- function(data, title) {
+  atlas <- schaefer7_400
+  atlas$data <- atlas$data %>%
+    left_join(data %>% select(region, mean_wmz), by = "region")
+  
+  ggseg(atlas = atlas,
+        mapping = aes(fill = mean_wmz),
+        position = "stacked") +
+    scale_fill_viridis_c(na.value = "gray") +
+    theme_void() +
+    ggtitle(title)
+}
+
+# Create plots
+control_plot_wmz <- prepare_brain_plot(control_data_wmz, "Control Group — Within Module Z-score")
+adhd_plot_wmz <- prepare_brain_plot(adhd_data_wmz, "ADHD Group — Within Module Z-score")
+
+control_plot_wmz | adhd_plot_wmz
+
+```
+
+PARTICIPATION COEFFICIENT
+
+
+```{r}
+# Load node strength data
+pc_data <- read.csv("participation_coeff_all_merged.csv")
+
+# Convert wide to long format
+pc_long <- pc_data %>%
+  pivot_longer(cols = starts_with("ROI"), names_to = "ROI", values_to = "PC")
+
+```
+
+
+```{r}
+#clear group label before plotting
+pc_long_lab <- pc_long %>%
+  mutate(Group = ifelse(MHAM_85 == 1, "ADHD", "Control"))
+
+```
+
+```{r}
+# Merge strength with region info
+pc_labeled <- pc_long_lab %>%
+  left_join(roi_map, by = "ROI") %>%
+  left_join(
+    schaefer7_400$data %>% select(region) %>% distinct() %>% 
+      mutate(ROI = paste0("ROI_", row_number())),
+    by = "ROI"
+  )
+
+# Compute average strength per region per group
+group_avg_pc <- pc_labeled %>%
+  group_by(Group, region) %>%
+  summarise(mean_pc = mean(PC, na.rm = TRUE), .groups = "drop")
+
+```
+
+```{r}
+# Split data for each group
+control_data_pc <- group_avg_pc %>% filter(Group == "Control")
+adhd_data_pc <- group_avg_pc %>% filter(Group == "ADHD")
+```
+
+```{r}
+## change outliers
+#which(control_data_pc < -18) #1173 1175
+control_data_pc$mean_pc <- ifelse(control_data_pc$mean_pc < -18, -3,
+       control_data_pc$mean_pc)
+```
+
+```{r}
+# Function to prepare atlas for plotting
+prepare_brain_plot <- function(data, title) {
+  atlas <- schaefer7_400
+  atlas$data <- atlas$data %>%
+    left_join(data %>% select(region, mean_pc), by = "region")
+  
+  ggseg(atlas = atlas,
+        mapping = aes(fill = mean_pc),
+        position = "stacked") +
+    scale_fill_viridis_c(na.value = "gray") +
+    theme_void() +
+    ggtitle(title)
+}
+
+# Create plots
+control_plot_pc <- prepare_brain_plot(control_data_pc, "Control Group — Participation Coefficient")
+adhd_plot_pc <- prepare_brain_plot(adhd_data_pc, "ADHD Group — Participation Coefficient")
+
+control_plot_pc | adhd_plot_pc
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
